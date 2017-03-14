@@ -6,9 +6,11 @@ public class unitychandemo : MonoBehaviour {
     private Animator animator;
     private AnimatorStateInfo animator_state;
 
+    private float mem_rotate;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
+        mem_rotate = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -33,11 +35,21 @@ public class unitychandemo : MonoBehaviour {
                     
             if (Input.GetKey("right"))
             {
-                transform.Rotate(0, 5, 0);
+                if (mem_rotate < 90.0f)
+                {
+                    transform.Rotate(0, 5, 0);
+                    mem_rotate += 5.0f;
+                }
+                transform.position += transform.forward * 0.05f;
             }
             if (Input.GetKey("left"))
             {
-                transform.Rotate(0, -5, 0);
+                if (mem_rotate > -90.0f)
+                {
+                    transform.Rotate(0, -5, 0);
+                    mem_rotate -= 5.0f;
+                }
+                transform.position += transform.forward * 0.05f;
             }
         }   
     }
