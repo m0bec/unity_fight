@@ -30,7 +30,19 @@ public class unitychandemo : MonoBehaviour {
         {
             if (Input.GetKey("up"))
             {
-                transform.position += transform.forward * 0.05f;
+                if(Mathf.Abs(mem_rotate) > 0.05f)
+                {
+                    if(mem_rotate > 0.0f)
+                    {
+                        transform.Rotate(0, -5, 0);
+                        mem_rotate -= 5.0f;
+                    }
+                    else
+                    {
+                        transform.Rotate(0, 5, 0);
+                        mem_rotate += 5.0f;
+                    }
+                }
             }
                     
             if (Input.GetKey("right"))
@@ -40,8 +52,8 @@ public class unitychandemo : MonoBehaviour {
                     transform.Rotate(0, 5, 0);
                     mem_rotate += 5.0f;
                 }
-                transform.position += transform.forward * 0.05f;
             }
+
             if (Input.GetKey("left"))
             {
                 if (mem_rotate > -90.0f)
@@ -49,8 +61,9 @@ public class unitychandemo : MonoBehaviour {
                     transform.Rotate(0, -5, 0);
                     mem_rotate -= 5.0f;
                 }
-                transform.position += transform.forward * 0.05f;
             }
+
+            transform.position += transform.forward * 0.05f;
         }   
     }
 }
