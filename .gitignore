@@ -28,3 +28,24 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+
+/unity_fight/Library
+/unity_fight/ProjectSettings
+/unity_fight/Temp
+*.meta
+*.prefab
+*.mat
+*.json
+*.png
+*.obj
+*.unity
+*.fbx
+*.tga
+*.controller
+*.anim
+*.mask
+*.txt
+*.cg
+*.shader
+*.pdf
