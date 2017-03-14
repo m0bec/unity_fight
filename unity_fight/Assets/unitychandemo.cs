@@ -28,16 +28,16 @@ public class unitychandemo : MonoBehaviour {
         {
             if (Input.GetKey("up"))
             {
-                transform.position += transform.forward * 0.01f;
+                transform.position += transform.forward * 0.05f;
             }
                     
             if (Input.GetKey("right"))
             {
-                transform.Rotate(0, 10, 0);
+                transform.Rotate(0, 5, 0);
             }
             if (Input.GetKey("left"))
             {
-                transform.Rotate(0, -10, 0);
+                transform.Rotate(0, -5, 0);
             }
         }   
     }

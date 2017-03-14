@@ -50,3 +50,4 @@ sysinfo.txt
 *.cg
 *.shader
 *.pdf
+*.physicMaterial
