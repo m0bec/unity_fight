@@ -8,7 +8,7 @@ public class Create_boxunity : MonoBehaviour {
     public GameObject boxunity;
 	// Use this for initialization
 	void Start () {
-        create_time = 1.0f;
+        create_time = 10.0f;
 	}
 	
 	// Update is called once per frame
