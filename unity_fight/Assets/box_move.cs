@@ -21,7 +21,7 @@ public class box_move : MonoBehaviour {
 
         if(measure_time > jump_time)
         {
-            rigidbody.AddForce(0, 0, force, ForceMode.Impulse);
+            rigidbody.AddForce(0, force, 0, ForceMode.Impulse);
             measure_time = 0.0f;
         }
     }
