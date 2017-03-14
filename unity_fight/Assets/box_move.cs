@@ -19,7 +19,7 @@ public class box_move : MonoBehaviour {
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
         force = 5.0f;
-        jump_time = 5.0f;
+        jump_time = 1.85f;
         vec_scale = 0.01f;
         rotation_speed = 1.0f;
 	}
