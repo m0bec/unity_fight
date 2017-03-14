@@ -33,6 +33,7 @@ sysinfo.txt
 /unity_fight/Library
 /unity_fight/ProjectSettings
 /unity_fight/Temp
+/unity_fight/Asset/UnityChan
 *.meta
 *.prefab
 *.mat
