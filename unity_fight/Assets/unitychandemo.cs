@@ -15,7 +15,7 @@ public class unitychandemo : MonoBehaviour {
 	void Update () {
         animator_state = animator.GetCurrentAnimatorStateInfo(0);
         
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up") || Input.GetKey("right") || Input.GetKey("left"))
         {
             animator.SetBool("is_running", true);
         }
