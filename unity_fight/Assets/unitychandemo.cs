@@ -7,12 +7,10 @@ public class unitychandemo : MonoBehaviour {
     private AnimatorStateInfo animator_state;
     private Transform transform;
 
-    public float mem_rotate;
     private float rotate_speed;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
-        mem_rotate = 0.0f;
         rotate_speed = 10.0f;
 	}
 	
@@ -20,10 +18,6 @@ public class unitychandemo : MonoBehaviour {
 	void Update () {
         animator_state = animator.GetCurrentAnimatorStateInfo(0);
         transform = GetComponent<Transform>();
-        if(mem_rotate == 360.0f)
-        {
-            mem_rotate = 0;
-        }
         
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow))
         {
@@ -41,11 +35,9 @@ public class unitychandemo : MonoBehaviour {
                 if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) < -5.0f)
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                    mem_rotate += rotate_speed;
                 }else if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) > 5.0f)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
-                    mem_rotate -= rotate_speed;
                 }
             }
                     
@@ -54,11 +46,9 @@ public class unitychandemo : MonoBehaviour {
                 if (Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) < -5.0f)
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                    mem_rotate += rotate_speed;
                 }else if(Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) > 5.0f)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
-                    mem_rotate -= rotate_speed;
                 }
             }
 
@@ -67,11 +57,9 @@ public class unitychandemo : MonoBehaviour {
                 if (Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) < -5.0f)
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                    mem_rotate += rotate_speed;
                 }else if(Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) > 5.0f)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
-                    mem_rotate -= rotate_speed;
                 }
             }
 
@@ -80,12 +68,10 @@ public class unitychandemo : MonoBehaviour {
                 if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) < -5.0f)
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                    mem_rotate += rotate_speed;
                 }
                 else if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) > 5.0f)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
-                    mem_rotate -= rotate_speed;
                 }
             }
             transform.position += transform.forward * 0.05f;
