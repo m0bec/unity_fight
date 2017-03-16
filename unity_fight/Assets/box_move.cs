@@ -9,8 +9,8 @@ public class box_move : MonoBehaviour {
     private float force;
     private float jump_time;
     private Vector3 vector;
-    private float vec_x;
-    private float vec_z;
+    public float vec_x;
+    public float vec_z;
     private float vec_direct;
     private float vec_scale;
     private float rotation;

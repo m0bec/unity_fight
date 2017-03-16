@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HIt_attack : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +13,12 @@ public class HIt_attack : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "weapon")
+        {
+
+        }
+    }
 }
