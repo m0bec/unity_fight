@@ -6,11 +6,13 @@ public class unitychandemo : MonoBehaviour {
     private Animator animator;
     private AnimatorStateInfo animator_state;
 
-    private float mem_rotate;
+    public float mem_rotate;
+    private float rotate_speed;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         mem_rotate = 0.0f;
+        rotate_speed = 10.0f;
 	}
 	
 	// Update is called once per frame
@@ -34,13 +36,13 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if(mem_rotate > 0.0f)
                     {
-                        transform.Rotate(0, -5, 0);
-                        mem_rotate -= 5.0f;
+                        transform.Rotate(0, -(rotate_speed), 0);
+                        mem_rotate -= rotate_speed;
                     }
                     else
                     {
-                        transform.Rotate(0, 5, 0);
-                        mem_rotate += 5.0f;
+                        transform.Rotate(0, rotate_speed, 0);
+                        mem_rotate += rotate_speed;
                     }
                 }
             }
@@ -49,12 +51,12 @@ public class unitychandemo : MonoBehaviour {
             {
                 if (mem_rotate < 90.0f)
                 {
-                    transform.Rotate(0, 5, 0);
-                    mem_rotate += 5.0f;
+                    transform.Rotate(0, rotate_speed, 0);
+                    mem_rotate += rotate_speed;
                 }else if(mem_rotate > 90.0f)
                 {
-                    transform.Rotate(0, -5, 0);
-                    mem_rotate -= 5.0f;
+                    transform.Rotate(0, -(rotate_speed), 0);
+                    mem_rotate -= rotate_speed;
                 }
             }
 
@@ -62,12 +64,12 @@ public class unitychandemo : MonoBehaviour {
             {
                 if (mem_rotate > -90.0f)
                 {
-                    transform.Rotate(0, -5, 0);
-                    mem_rotate -= 5.0f;
+                    transform.Rotate(0, -(rotate_speed), 0);
+                    mem_rotate -= rotate_speed;
                 }else if(mem_rotate < -90.0f)
                 {
-                    transform.Rotate(0, 5, 0);
-                    mem_rotate += 5.0f;
+                    transform.Rotate(0, rotate_speed, 0);
+                    mem_rotate += rotate_speed;
                 }
             }
 
@@ -77,13 +79,13 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if(mem_rotate > 0.0f)
                     {
-                        transform.Rotate(0, 5, 0);
-                        mem_rotate += 5.0f;
+                        transform.Rotate(0, rotate_speed, 0);
+                        mem_rotate += rotate_speed;
                     }
                     else
                     {
-                        transform.Rotate(0, -5, 0);
-                        mem_rotate -= 5.0f;
+                        transform.Rotate(0, -(rotate_speed), 0);
+                        mem_rotate -= rotate_speed;
                     }
                 }
             }
