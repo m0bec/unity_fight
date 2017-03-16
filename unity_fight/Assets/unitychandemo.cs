@@ -7,11 +7,13 @@ public class unitychandemo : MonoBehaviour {
     private AnimatorStateInfo animator_state;
     private Transform transform;
 
+    private float margine;
     private float rotate_speed;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         rotate_speed = 10.0f;
+        margine = 5.0f;
 	}
 	
 	// Update is called once per frame
@@ -32,10 +34,10 @@ public class unitychandemo : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) < -5.0f)
+                if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) > 5.0f)
+                }else if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
@@ -43,10 +45,10 @@ public class unitychandemo : MonoBehaviour {
                     
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                if (Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) < -5.0f)
+                if (Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) > 5.0f)
+                }else if(Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
@@ -54,10 +56,10 @@ public class unitychandemo : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                if (Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) < -5.0f)
+                if (Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) > 5.0f)
+                }else if(Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
@@ -65,11 +67,11 @@ public class unitychandemo : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) < -5.0f)
+                if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
                 }
-                else if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) > 5.0f)
+                else if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
