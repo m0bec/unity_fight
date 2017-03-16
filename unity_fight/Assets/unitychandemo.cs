@@ -18,6 +18,10 @@ public class unitychandemo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         animator_state = animator.GetCurrentAnimatorStateInfo(0);
+        if(mem_rotate == 360.0f)
+        {
+            mem_rotate = 0;
+        }
         
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow))
         {
