@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Start_unitychan_move : MonoBehaviour {
     private Vector3 unity_vec;
+    private Vector3 unity_start_vec;
     private GameObject[] unity_box;
     private Animator animator;
 
@@ -13,7 +14,7 @@ public class Start_unitychan_move : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
-
+        unity_start_vec = this.transform.position;
         escape_time = 1.0f;
         measure_time = 0.0f;
 	}
@@ -24,7 +25,7 @@ public class Start_unitychan_move : MonoBehaviour {
         unity_box = GameObject.FindGameObjectsWithTag("box_unity");
         if (unity_box.Length == 0)
         {
-            if (unity_vec.x < -1.0f)
+            if (Mathf.Abs(unity_start_vec.x - unity_vec.x) < 3.0f)
             {
                 animator.SetBool("Run_flag", true);
                 this.transform.position += new Vector3(0.05f, 0.0f, 0.0f);
