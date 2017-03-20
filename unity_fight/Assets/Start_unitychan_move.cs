@@ -57,6 +57,7 @@ public class Start_unitychan_move : MonoBehaviour {
             if(measure_time > escape_time)
             {
                 animator.SetBool("Run_flag", true);
+                animator.SetBool("Esp_flag", true);
                 this.transform.position += new Vector3(-0.05f, 0.0f, 0.0f);
                 if (Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) > 1.0f)
                 {
