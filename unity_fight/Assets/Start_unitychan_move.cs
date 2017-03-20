@@ -34,5 +34,9 @@ public class Start_unitychan_move : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            animator.SetBool("Sup_flag", true);
+        }
 	}
 }
