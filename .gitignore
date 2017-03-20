@@ -51,3 +51,7 @@ sysinfo.txt
 *.shader
 *.pdf
 *.physicMaterial
+*.tif
+*.db
+/unity_fight/Asset/ZRNAssers
+*.opendb
