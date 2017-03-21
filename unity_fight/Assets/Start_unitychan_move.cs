@@ -11,7 +11,7 @@ public class Start_unitychan_move : MonoBehaviour {
     private float move_speed;
     private float escape_time;
     private float measure_time;
-
+    private float move_distance;
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -19,6 +19,7 @@ public class Start_unitychan_move : MonoBehaviour {
         escape_time = 1.0f;
         measure_time = 0.0f;
         move_speed = 0.01f;
+        move_distance = 0.43f;
 	}
 	
 	// Update is called once per frame
@@ -27,7 +28,7 @@ public class Start_unitychan_move : MonoBehaviour {
         unity_box = GameObject.FindGameObjectsWithTag("box_unity");
         if (unity_box.Length == 0)
         {
-            if (Mathf.Abs(unity_start_vec.x - unity_vec.x) < 0.43f)
+            if (Mathf.Abs(unity_start_vec.x - unity_vec.x) < move_distance)
             {
                 animator.SetBool("Run_flag", true);
                 this.transform.position += new Vector3(move_speed, 0.0f, 0.0f);
