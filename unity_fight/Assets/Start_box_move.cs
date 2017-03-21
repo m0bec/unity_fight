@@ -16,6 +16,7 @@ public class Start_box_move : MonoBehaviour {
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
         start_position = this.transform.position;
+        upper_move_distance = 1.5f;
         move_speed = 0.01f;
         measure_time = 0.0f;
         jump_time = 1.85f;
