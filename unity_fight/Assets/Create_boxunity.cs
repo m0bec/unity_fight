@@ -6,9 +6,11 @@ public class Create_boxunity : MonoBehaviour {
     public float create_time;
     private float measure_time;
     public GameObject boxunity;
-	// Use this for initialization
-	void Start () {
+    private Vector3 vec;
+    // Use this for initialization
+    void Start () {
         create_time = 10.0f;
+        vec = this.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +19,7 @@ public class Create_boxunity : MonoBehaviour {
 
         if(measure_time > create_time)
         {
-            Instantiate(boxunity);
+            Instantiate(boxunity, vec, Quaternion.Euler(0, 0, 0));
             measure_time = 0.0f;
         }
 	}
