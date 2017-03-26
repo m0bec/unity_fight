@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HIt_attack : MonoBehaviour {
     new public Rigidbody rigidbody;
+
     private box_move Box_move;
     private float impulse;
+
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -14,8 +16,8 @@ public class HIt_attack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+   
+    }
 
     void OnCollisionEnter(Collision collision)
     {
