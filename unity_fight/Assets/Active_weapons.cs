@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Active_weapon : MonoBehaviour {
-    private AnimatorStateInfo animator_state;
+public class Active_weapons : MonoBehaviour
+{
     private Animator animator;
+    private AnimatorStateInfo animator_state;
     public bool attack_flag;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         attack_flag = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         animator_state = animator.GetCurrentAnimatorStateInfo(0);
 
         if (animator_state.fullPathHash == Animator.StringToHash("Base Layer.Attack_down")
