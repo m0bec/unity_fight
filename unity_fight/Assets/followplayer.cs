@@ -6,6 +6,7 @@ public class followplayer : MonoBehaviour {
     private GameObject gameobject;
     private Vector3 before_position;
     private float rotate_speed;
+    private Vector3 rotate_target;
     // Use this for initialization
     void Start () {
         rotate_speed = 50.0f;
@@ -26,7 +27,11 @@ public class followplayer : MonoBehaviour {
         {
             transform.RotateAround(gameobject.transform.position, Vector3.up, -rotate_speed * Time.deltaTime);
         }
-        
+        if (Input.GetKey(KeyCode.D))
+        {
+            rotate_target = gameobject.transform.localEulerAngles - transform.localEulerAngles;
+            transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_target.y);
+        }
 
     }
 }
