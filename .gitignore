@@ -34,6 +34,9 @@ sysinfo.txt
 /unity_fight/ProjectSettings
 /unity_fight/Temp
 /unity_fight/Asset/UnityChan
+/unity_fight/Asset/Standard Assets
+/unity_fight/Assets/Standard Assets
+*.asset
 *.meta
 *.prefab
 *.mat
