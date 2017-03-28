@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Start_menue : MonoBehaviour {
     enum state_info
@@ -17,6 +18,17 @@ public class Start_menue : MonoBehaviour {
     private bool key_push_flag;
     private float key_time;
     private float wait_time;
+
+    void Select_menue()
+    {
+        if (Input.GetKey(KeyCode.Z))
+        {
+            if(state == state_info.Start)
+            {
+                SceneManager.LoadScene("unitychan_make");
+            }
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -34,6 +46,7 @@ public class Start_menue : MonoBehaviour {
     void Update () {
         key_time += Time.deltaTime;
 
+        Select_menue();
         if (Input.GetKey(KeyCode.UpArrow) && !key_push_flag)
         {
             state -= 1;
