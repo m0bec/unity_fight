@@ -50,7 +50,7 @@ public class Start_menue : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow) && !key_push_flag)
         {
             state -= 1;
-            if(state == state_info.Lower_limit)
+            if(state <= state_info.Lower_limit)
             {
                 state = state_info.Exit;
             }
@@ -59,7 +59,7 @@ public class Start_menue : MonoBehaviour {
         }else if (Input.GetKey(KeyCode.DownArrow) && !key_push_flag)
         {
             state += 1;
-            if(state == state_info.Upper_limit)
+            if(state >= state_info.Upper_limit)
             {
                 state = state_info.Start;
             }

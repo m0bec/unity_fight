@@ -22,10 +22,10 @@ public class HIt_attack : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Box_move = GetComponent<box_move>();
-        active_weapons = GameObject.Find("unitychan").GetComponent<Active_weapons>();
         if (collision.gameObject.tag == "weapon")
         {
+            Box_move = GetComponent<box_move>();
+            active_weapons = GameObject.Find("unitychan").GetComponent<Active_weapons>();
             if (active_weapons.attack_flag)
             {
                 rigidbody.AddForce(-Box_move.vec_x * impulse, 0, -Box_move.vec_z * impulse, ForceMode.Impulse);
