@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Start_menue : MonoBehaviour {
-    enum state_info
+    public enum state_info
     {
         Lower_limit, Start, Information, Score, Exit, Upper_limit
     }
@@ -14,7 +14,7 @@ public class Start_menue : MonoBehaviour {
     private GameObject information;
     private GameObject score;
     private GameObject escape;
-    private state_info state;
+    public state_info state;
     private bool key_push_flag;
     private float key_time;
     private float wait_time;
