@@ -21,11 +21,11 @@ public class Score_texts : MonoBehaviour
         state_info_ = game_system.GetComponent<Game_system>().state;
         if (state_info_ == Game_system.state_info.Gameover)
         {
-            this.GetComponent<Text>().text = "GAME OVER";
+            this.GetComponent<Text>().text = "GAME OVER\n" + "Score " + score.ToString();
         }
         else if (state_info_ == Game_system.state_info.Playing)
         {
-            this.GetComponent<Text>().text = "Score " + score.ToString() + "point";
+            this.GetComponent<Text>().text = "Score " + score.ToString();
         }
         else if (state_info_  == Game_system.state_info.Pouse)
         {
