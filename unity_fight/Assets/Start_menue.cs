@@ -48,6 +48,9 @@ public class Start_menue : MonoBehaviour {
                 escape.GetComponent<Text>().enabled = true;
                 information_text.GetComponent<Text>().enabled = false;
                 state = state_info.Information;
+            }else if(state == state_info.Exit)
+            {
+                Application.Quit();
             }
         }
     }
