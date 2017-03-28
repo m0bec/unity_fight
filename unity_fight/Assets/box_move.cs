@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class box_move : MonoBehaviour {
+    private GameObject game_system;
+    private Game_system.state_info state_info_;
+
     new public Rigidbody rigidbody;
     public float measure_time;
 
@@ -17,6 +20,8 @@ public class box_move : MonoBehaviour {
     private float rotation_speed;
     // Use this for initialization
     void Start () {
+        game_system = GameObject.Find("Gamesystem");
+
         rigidbody = GetComponent<Rigidbody>();
         force = 5.0f;
         jump_time = 1.85f;
