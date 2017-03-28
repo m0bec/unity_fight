@@ -7,25 +7,47 @@ using UnityEngine.SceneManagement;
 public class Start_menue : MonoBehaviour {
     public enum state_info
     {
-        Lower_limit, Start, Information, Score, Exit, Upper_limit
+        Lower_limit, Start, Information, Score, Exit, Upper_limit, Information_text
     }
 
     private GameObject start;
     private GameObject information;
     private GameObject score;
     private GameObject escape;
+    private GameObject information_text;
     public state_info state;
     private bool key_push_flag;
     private float key_time;
     private float wait_time;
+    private float decision_time;
+    private bool decision_flag;
 
     void Select_menue()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space))
         {
+            decision_flag = true;
+            decision_time = 0.0f;
+
             if(state == state_info.Start)
             {
                 SceneManager.LoadScene("unitychan_make");
+            }else if(state == state_info.Information)
+            {
+                start.GetComponent<Text>().enabled = false;
+                information.GetComponent<Text>().enabled = false;
+                score.GetComponent<Text>().enabled = false;
+                escape.GetComponent<Text>().enabled = false;
+                information_text.GetComponent<Text>().enabled = true;
+                state = state_info.Information_text;
+            }else if(state == state_info.Information_text)
+            {
+                start.GetComponent<Text>().enabled = true;
+                information.GetComponent<Text>().enabled = true;
+                score.GetComponent<Text>().enabled = true;
+                escape.GetComponent<Text>().enabled = true;
+                information_text.GetComponent<Text>().enabled = false;
+                state = state_info.Information;
             }
         }
     }
@@ -37,16 +59,30 @@ public class Start_menue : MonoBehaviour {
         information = GameObject.Find("Information");
         score = GameObject.Find("Score");
         escape = GameObject.Find("Exit");
+        information_text = GameObject.Find("Information_text");
+
+        information_text.GetComponent<Text>().enabled = false;
 
         wait_time = 0.3f;
         key_time = 0.0f;
+        decision_time = 0.0f;
         key_push_flag = false;
+        decision_flag = false;
     }
     // Update is called once per frame
     void Update () {
         key_time += Time.deltaTime;
+        decision_time += Time.deltaTime;
 
-        Select_menue();
+        if (!decision_flag)
+        {
+            Select_menue();
+        }
+        if(decision_time > wait_time)
+        {
+            decision_flag = false;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) && !key_push_flag)
         {
             state -= 1;
