@@ -10,6 +10,7 @@ public class unitychandemo : MonoBehaviour {
 
     private float margine;
     private float rotate_speed;
+    private Vector3 memory_place;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -94,7 +95,14 @@ public class unitychandemo : MonoBehaviour {
                     transform.rotation = Quaternion.Euler(0.0f, camera.transform.eulerAngles.y + 180.0f, 0.0f);
                 }
             }
+
+            memory_place = transform.position;
             transform.position += transform.forward * 0.05f;
+            if(transform.position.x > 100 || transform.position.x < 0 
+                || transform.position.z > 100 || transform.position.z < 0)
+            {
+                transform.position = memory_place;
+            }
         }   
     }
 }

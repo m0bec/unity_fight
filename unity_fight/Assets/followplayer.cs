@@ -14,7 +14,7 @@ public class followplayer : MonoBehaviour {
     void Start () {
         game_system = GameObject.Find("Gamesystem");
 
-        rotate_speed = 50.0f;
+        rotate_speed = 100.0f;
 
         gameobject = GameObject.Find("unitychan");
         before_position = gameobject.transform.position;
@@ -28,11 +28,11 @@ public class followplayer : MonoBehaviour {
         {
             transform.position += gameobject.transform.position - before_position;
             before_position = gameobject.transform.position;
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.S))
             {
                 transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_speed * Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.A))
             {
                 transform.RotateAround(gameobject.transform.position, Vector3.up, -rotate_speed * Time.deltaTime);
             }

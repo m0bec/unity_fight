@@ -36,6 +36,9 @@ sysinfo.txt
 /unity_fight/Asset/UnityChan
 /unity_fight/Asset/Standard Assets
 /unity_fight/Assets/Standard Assets
+/unity_fight/dust chute
+/unity_fight/dust chute_Data
+*.exe
 *.asset
 *.meta
 *.prefab
