@@ -47,10 +47,10 @@ public class unitychandemo : MonoBehaviour {
                     
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                if (Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) < -(margine))
+                if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(90.0f, transform.eulerAngles.y) > margine)
+                }else if(Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
@@ -58,10 +58,10 @@ public class unitychandemo : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                if (Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) < -(margine))
+                if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(270.0f, transform.eulerAngles.y) > margine)
+                }else if(Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
@@ -69,11 +69,11 @@ public class unitychandemo : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) < -(margine))
+                if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
                 }
-                else if (Mathf.DeltaAngle(180.0f, transform.eulerAngles.y) > margine)
+                else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
