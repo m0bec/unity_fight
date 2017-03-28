@@ -6,12 +6,14 @@ public class unitychandemo : MonoBehaviour {
     private Animator animator;
     private AnimatorStateInfo animator_state;
     private Transform transform;
+    private GameObject camera;
 
     private float margine;
     private float rotate_speed;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
+        camera = GameObject.Find("Main Camera");
         rotate_speed = 10.0f;
         margine = 5.0f;
 	}
@@ -34,10 +36,10 @@ public class unitychandemo : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) < -(margine))
+                if(Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) < -(margine))
                 {
                     transform.Rotate(0, rotate_speed, 0);
-                }else if(Mathf.DeltaAngle(360.0f, transform.eulerAngles.y) > margine)
+                }else if(Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) > margine)
                 {
                     transform.Rotate(0, -(rotate_speed), 0);
                 }
