@@ -20,7 +20,7 @@ public class Game_system : MonoBehaviour {
         unitychan = GameObject.Find("unitychan");
         state = state_info.Playing;
         time = 0.0f;
-        gameover_time = 2.0f;
+        gameover_time = 1.0f;
         gameover_next_flag = false;
 	}
 	
