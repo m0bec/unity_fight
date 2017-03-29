@@ -16,10 +16,11 @@ public class Create_boxunity : MonoBehaviour {
 
         create_time = 10.0f;
         vec = this.transform.position;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        
         state_info_ = game_system.GetComponent<Game_system>().state;
         if (state_info_ == Game_system.state_info.Playing)
         {
@@ -27,6 +28,7 @@ public class Create_boxunity : MonoBehaviour {
 
             if (measure_time > create_time)
             {
+                vec = this.transform.position;
                 Instantiate(boxunity, vec, Quaternion.Euler(0, 0, 0));
                 measure_time = 0.0f;
             }
