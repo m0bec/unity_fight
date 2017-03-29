@@ -23,7 +23,7 @@ public class Hit : MonoBehaviour {
         active_weapons = GameObject.Find("unitychan").GetComponent<Active_weapons>();
         if (active_weapons.attack_flag)
         {
-            collider.gameObject.GetComponent<Rigidbody>().AddForce(-Box_move.vec_x * impulse, 0, -Box_move.vec_z * impulse, ForceMode.Impulse);
+            collider.gameObject.GetComponent<Rigidbody>().AddForce(-Box_move.vec_x * impulse, 1.0f, -Box_move.vec_z * impulse, ForceMode.Impulse);
         }
         
     }
