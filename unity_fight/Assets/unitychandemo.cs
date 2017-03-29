@@ -11,12 +11,16 @@ public class unitychandemo : MonoBehaviour {
     private float margine;
     private float rotate_speed;
     private Vector3 memory_place;
+    private float field_x;
+    private float field_z;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         camera = GameObject.Find("Main Camera");
         rotate_speed = 30.0f;
         margine = 5.0f;
+        field_x = 50.0f;
+        field_z = 50.0f;
 	}
 	
 	// Update is called once per frame
@@ -98,8 +102,8 @@ public class unitychandemo : MonoBehaviour {
 
             memory_place = transform.position;
             transform.position += transform.forward * 0.05f;
-            if(transform.position.x > 100 || transform.position.x < 0 
-                || transform.position.z > 100 || transform.position.z < 0)
+            if(transform.position.x > field_x || transform.position.x < 0 
+                || transform.position.z > field_z || transform.position.z < 0)
             {
                 transform.position = memory_place;
             }
