@@ -10,6 +10,7 @@ public class Create_boxunity : MonoBehaviour {
     private float measure_time;
     public GameObject boxunity;
     private Vector3 vec;
+    private float rank;
     // Use this for initialization
     void Start () {
         game_system = GameObject.Find("Gamesystem");
@@ -22,11 +23,12 @@ public class Create_boxunity : MonoBehaviour {
 	void Update () {
         
         state_info_ = game_system.GetComponent<Game_system>().state;
+        rank = game_system.GetComponent<Game_system>().rank;
         if (state_info_ == Game_system.state_info.Playing)
         {
             measure_time += Time.deltaTime;
 
-            if (measure_time > create_time)
+            if (measure_time > create_time - rank)
             {
                 vec = this.transform.position;
                 Instantiate(boxunity, vec, Quaternion.Euler(0, 0, 0));
