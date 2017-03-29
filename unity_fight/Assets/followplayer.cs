@@ -10,6 +10,7 @@ public class followplayer : MonoBehaviour {
     private Vector3 before_position;
     private float rotate_speed;
     private Vector3 rotate_target;
+    private bool push_d_flag;
     // Use this for initialization
     void Start () {
         game_system = GameObject.Find("Gamesystem");
@@ -18,6 +19,8 @@ public class followplayer : MonoBehaviour {
 
         gameobject = GameObject.Find("unitychan");
         before_position = gameobject.transform.position;
+
+        push_d_flag = false;
     }
 	
 	// Update is called once per frame
@@ -38,8 +41,16 @@ public class followplayer : MonoBehaviour {
             }
             if (Input.GetKey(KeyCode.D))
             {
-                rotate_target = gameobject.transform.localEulerAngles - transform.localEulerAngles;
-                transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_target.y);
+                if (!push_d_flag)
+                {
+                    rotate_target = gameobject.transform.localEulerAngles - transform.localEulerAngles;
+                    transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_target.y);
+                    push_d_flag = true;
+                }
+            }
+            else
+            {
+                push_d_flag = false;
             }
         }else if(state_info_ == Game_system.state_info.Gameover)
         {
