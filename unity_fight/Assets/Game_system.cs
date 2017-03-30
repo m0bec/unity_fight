@@ -65,6 +65,9 @@ public class Game_system : MonoBehaviour {
                     rank_time_count = 0.0f;
                 }
             }
+        }else if(state == state_info.Pouse)
+        {
+
         }
 	}
 }
