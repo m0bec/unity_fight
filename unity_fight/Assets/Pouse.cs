@@ -3,36 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pouse : MonoBehaviour {
+    private GameObject game_system;
+    private Game_system.state_info state_info_;
+
     public bool pouse_flag;
     bool push_key_flag;
+    
 	// Use this for initialization
 	void Start () {
+        game_system = GameObject.Find("Gamesystem");
+
         pouse_flag = false;
         push_key_flag = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.C))
+        state_info_ = game_system.GetComponent<Game_system>().state;
+
+        if (state_info_ == Game_system.state_info.Playing)
         {
-            if (!push_key_flag)
+            if (Input.GetKey(KeyCode.C))
             {
-                if (!pouse_flag)
+                if (!push_key_flag)
                 {
-                    Time.timeScale = 0.0f;
-                    pouse_flag = true;
+                    if (!pouse_flag)
+                    {
+                        Time.timeScale = 0.0f;
+                        pouse_flag = true;
+                    }
+                    else
+                    {
+                        Time.timeScale = 1.0f;
+                        pouse_flag = false;
+                    }
                 }
-                else
-                {
-                    Time.timeScale = 1.0f;
-                    pouse_flag = false;
-                }
+                push_key_flag = true;
             }
-            push_key_flag = true;
-        }
-        else
-        {
-            push_key_flag = false;
+            else
+            {
+                push_key_flag = false;
+            }
         }
 	}
 }
