@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Start_menue : MonoBehaviour {
     public enum state_info
     {
-        Lower_limit, Start, Information, Score, Exit, Upper_limit, Information_text
+        Lower_limit, Start, Information, Score, Exit, Upper_limit, Information_text, High_score
     }
 
     private GameObject start;
@@ -15,6 +15,8 @@ public class Start_menue : MonoBehaviour {
     private GameObject score;
     private GameObject escape;
     private GameObject information_text;
+    private GameObject high_score;
+
     public state_info state;
     private bool key_push_flag;
     private float key_time;
@@ -39,6 +41,7 @@ public class Start_menue : MonoBehaviour {
                 score.GetComponent<Text>().enabled = false;
                 escape.GetComponent<Text>().enabled = false;
                 information_text.GetComponent<Text>().enabled = true;
+                high_score.GetComponent<Text>().enabled = false;
                 state = state_info.Information_text;
             }else if(state == state_info.Information_text)
             {
@@ -47,10 +50,41 @@ public class Start_menue : MonoBehaviour {
                 score.GetComponent<Text>().enabled = true;
                 escape.GetComponent<Text>().enabled = true;
                 information_text.GetComponent<Text>().enabled = false;
+                high_score.GetComponent<Text>().enabled = false;
                 state = state_info.Information;
             }else if(state == state_info.Exit)
             {
                 Application.Quit();
+            }else if(state == state_info.Score)
+            {
+                start.GetComponent<Text>().enabled = false;
+                information.GetComponent<Text>().enabled = false;
+                score.GetComponent<Text>().enabled = false;
+                escape.GetComponent<Text>().enabled = false;
+                information_text.GetComponent<Text>().enabled = false;
+                high_score.GetComponent<Text>().enabled = true;
+                state = state_info.High_score;
+
+                high_score.GetComponent<Text>().text =
+                "1st : " + PlayerPrefs.GetInt("first") + "\n" +
+                "2nd : " + PlayerPrefs.GetInt("second") + "\n" +
+                "3rd : " + PlayerPrefs.GetInt("third") + "\n" +
+                "4th : " + PlayerPrefs.GetInt("fourth") + "\n" +
+                "5th : " + PlayerPrefs.GetInt("fifth") + "\n" +
+                "6th : " + PlayerPrefs.GetInt("sixth") + "\n" +
+                "7th : " + PlayerPrefs.GetInt("seventh") + "\n" +
+                "8th : " + PlayerPrefs.GetInt("eighth") + "\n" +
+                "9th : " + PlayerPrefs.GetInt("ninth") + "\n" +
+                "10th: " + PlayerPrefs.GetInt("tenth") + "\n";
+            }else if(state == state_info.High_score)
+            {
+                start.GetComponent<Text>().enabled = true;
+                information.GetComponent<Text>().enabled = true;
+                score.GetComponent<Text>().enabled = true;
+                escape.GetComponent<Text>().enabled = true;
+                information_text.GetComponent<Text>().enabled = false;
+                high_score.GetComponent<Text>().enabled = false;
+                state = state_info.Score;
             }
         }
     }
@@ -63,6 +97,7 @@ public class Start_menue : MonoBehaviour {
         score = GameObject.Find("Score");
         escape = GameObject.Find("Exit");
         information_text = GameObject.Find("Information_text");
+        high_score = GameObject.Find("High_score");
 
         information_text.GetComponent<Text>().enabled = false;
 

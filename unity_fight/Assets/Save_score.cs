@@ -38,14 +38,16 @@ public class Save_score : MonoBehaviour {
         state_info_ = game_system.GetComponent<Game_system>().state;
         if (!save_flag && state_info_ == Game_system.state_info.Gameover)
         {
-            storage = scoretext.GetComponent<Score_texts>().score;
+            new_score = scoretext.GetComponent<Score_texts>().score;
             for (int i = 0; i < 10; i++)
             {
                 high_score[i] = PlayerPrefs.GetInt(high_score_rank[i]);
-                if(storage > high_score[i])
+                if(new_score > high_score[i])
                 {
-                    high_score[i] = storage;
                     storage = high_score[i];
+                    high_score[i] = new_score;
+                    new_score = storage;
+                    PlayerPrefs.SetInt(high_score_rank[i], high_score[i]);
                 }
                 save_flag = true;
             }
