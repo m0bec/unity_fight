@@ -31,23 +31,26 @@ public class box_move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        measure_time += Time.deltaTime;
-        vector = GameObject.Find("unitychan").transform.position;
-
-        vec_x = vector.x - this.transform.position.x;
-        vec_z = vector.z - this.transform.position.z;
-        //回転
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(vector.x, 0, vector.z)), rotation_speed);
-        vec_direct = Mathf.Sqrt(Mathf.Pow(vec_x, 2.0f) + Mathf.Pow(vec_z, 2.0f));
-        vec_x = (vec_x / vec_direct) * vec_scale;
-        vec_z = (vec_z / vec_direct) * vec_scale;
-        this.transform.position += new Vector3(vec_x, 0, vec_z);
-        this.transform.Rotate(0, rotation, 0);
-
-        if (measure_time > jump_time)
+        if (Time.timeScale > 0)
         {
-            rigidbody.AddForce(0, force, 0, ForceMode.Impulse);
-            measure_time = 0.0f;
+            measure_time += Time.deltaTime;
+            vector = GameObject.Find("unitychan").transform.position;
+
+            vec_x = vector.x - this.transform.position.x;
+            vec_z = vector.z - this.transform.position.z;
+            //回転
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(vector.x, 0, vector.z)), rotation_speed);
+            vec_direct = Mathf.Sqrt(Mathf.Pow(vec_x, 2.0f) + Mathf.Pow(vec_z, 2.0f));
+            vec_x = (vec_x / vec_direct) * vec_scale;
+            vec_z = (vec_z / vec_direct) * vec_scale;
+            this.transform.position += new Vector3(vec_x, 0, vec_z);
+            this.transform.Rotate(0, rotation, 0);
+
+            if (measure_time > jump_time)
+            {
+                rigidbody.AddForce(0, force, 0, ForceMode.Impulse);
+                measure_time = 0.0f;
+            }
         }
     }
 }

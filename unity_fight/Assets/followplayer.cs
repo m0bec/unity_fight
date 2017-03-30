@@ -25,38 +25,42 @@ public class followplayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        state_info_ = game_system.GetComponent<Game_system>().state;
-
-        if (state_info_ == Game_system.state_info.Playing)
+        if (Time.timeScale > 0)
         {
-            transform.position += gameobject.transform.position - before_position;
-            before_position = gameobject.transform.position;
-            if (Input.GetKey(KeyCode.S))
+            state_info_ = game_system.GetComponent<Game_system>().state;
+
+            if (state_info_ == Game_system.state_info.Playing)
             {
-                transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_speed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.RotateAround(gameobject.transform.position, Vector3.up, -rotate_speed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (!push_d_flag)
+                transform.position += gameobject.transform.position - before_position;
+                before_position = gameobject.transform.position;
+                if (Input.GetKey(KeyCode.S))
                 {
-                    rotate_target = gameobject.transform.localEulerAngles - transform.localEulerAngles;
-                    transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_target.y);
-                    push_d_flag = true;
+                    transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_speed * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.RotateAround(gameobject.transform.position, Vector3.up, -rotate_speed * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    if (!push_d_flag)
+                    {
+                        rotate_target = gameobject.transform.localEulerAngles - transform.localEulerAngles;
+                        transform.RotateAround(gameobject.transform.position, Vector3.up, rotate_target.y);
+                        push_d_flag = true;
+                    }
+                }
+                else
+                {
+                    push_d_flag = false;
                 }
             }
-            else
+            else if (state_info_ == Game_system.state_info.Gameover)
             {
-                push_d_flag = false;
+                transform.position = gameobject.transform.position;
+                transform.position += new Vector3(0.0f, 4.0f, 0.0f);
+                transform.rotation = Quaternion.Euler(90.0f, 0.0f, 0.0f);
             }
-        }else if(state_info_ == Game_system.state_info.Gameover)
-        {
-            transform.position = gameobject.transform.position;
-            transform.position += new Vector3(0.0f, 4.0f, 0.0f);
-            transform.rotation = Quaternion.Euler(90.0f, 0.0f, 0.0f);
         }
 
     }

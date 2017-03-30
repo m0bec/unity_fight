@@ -18,21 +18,24 @@ public class move_cube : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        time_count += Time.deltaTime;
-        if(time_count > 2.0f)
+        if (Time.timeScale > 0)
         {
-            move = new Vector3(Random.Range(-0.1f, 0.1f), 0.0f, Random.Range(-0.1f, 0.1f));
-            time_count = 0.0f;
-        }
+            time_count += Time.deltaTime;
+            if (time_count > 2.0f)
+            {
+                move = new Vector3(Random.Range(-0.1f, 0.1f), 0.0f, Random.Range(-0.1f, 0.1f));
+                time_count = 0.0f;
+            }
 
-        before_place = this.transform.position;
-        this.transform.position += move;
-        if(this.transform.position.x > field_x || this.transform.position.x < 0
-            || this.transform.position.z > field_z || this.transform.position.z < 0)
-        {
-            this.transform.position = before_place;
-            move.x = -move.x;
-            move.z = -move.z;
+            before_place = this.transform.position;
+            this.transform.position += move;
+            if (this.transform.position.x > field_x || this.transform.position.x < 0
+                || this.transform.position.z > field_z || this.transform.position.z < 0)
+            {
+                this.transform.position = before_place;
+                move.x = -move.x;
+                move.z = -move.z;
+            }
         }
 	}
 }

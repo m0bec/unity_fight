@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pouse : MonoBehaviour {
-    bool pouse_flag;
+    public bool pouse_flag;
     bool push_key_flag;
 	// Use this for initialization
 	void Start () {
@@ -17,13 +17,15 @@ public class Pouse : MonoBehaviour {
         {
             if (!push_key_flag)
             {
-                if (pouse_flag)
+                if (!pouse_flag)
                 {
                     Time.timeScale = 0.0f;
+                    pouse_flag = true;
                 }
                 else
                 {
                     Time.timeScale = 1.0f;
+                    pouse_flag = false;
                 }
             }
             push_key_flag = true;
