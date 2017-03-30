@@ -33,7 +33,6 @@ public class Score_texts : MonoBehaviour
             gameover1.GetComponent<Text>().text = "GAME OVER";
             gameover2.GetComponent<Text>().text = "Score " + score.ToString();
             gameover3.GetComponent<Text>().text = "Please push Z key";
-            //this.GetComponent<Text>().text = "GAME OVER\n" + "Score " + score.ToString() + "\nPlease push Z key";
         }
         else if (state_info_ == Game_system.state_info.Playing)
         {
