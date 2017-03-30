@@ -18,8 +18,8 @@ public class unitychandemo : MonoBehaviour {
     void Start () {
         animator = GetComponent<Animator>();
         camera = GameObject.Find("Main Camera");
-        rotate_speed = 30.0f;
-        move_speed = 0.05f;
+        rotate_speed = 1500.0f;
+        move_speed = 2.5f;
         margine = 5.0f;
         field_x = 50.0f;
         field_z = 50.0f;
@@ -45,11 +45,11 @@ public class unitychandemo : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) < -(rotate_speed))
+                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) < -(rotate_speed) * Time.deltaTime)
                     {
                         transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
-                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) > rotate_speed)
+                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) > rotate_speed * Time.deltaTime)
                     {
                         transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
@@ -61,11 +61,11 @@ public class unitychandemo : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) < -(rotate_speed))
+                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) < -(rotate_speed) * Time.deltaTime)
                     {
                         transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
-                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) > rotate_speed)
+                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) > rotate_speed * Time.deltaTime)
                     {
                         transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
@@ -77,11 +77,11 @@ public class unitychandemo : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) < -(rotate_speed))
+                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) < -(rotate_speed) * Time.deltaTime)
                     {
                         transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
-                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) > rotate_speed)
+                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) > rotate_speed * Time.deltaTime)
                     {
                         transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
@@ -93,11 +93,11 @@ public class unitychandemo : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) < -(rotate_speed))
+                    if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) < -(rotate_speed) * Time.deltaTime)
                     {
                         transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
-                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) > rotate_speed)
+                    else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) > rotate_speed * Time.deltaTime)
                     {
                         transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }

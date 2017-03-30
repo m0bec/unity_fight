@@ -8,10 +8,12 @@ public class move_cube : MonoBehaviour {
     Vector3 before_place;
     float field_x;
     float field_z;
+    float correction;
 	// Use this for initialization
 	void Start () {
         time_count = 0.0f;
         move = new Vector3(0.0f, 0.0f, 0.0f);
+        correction = 50;
         field_x = 50.0f;
         field_z = 50.0f;
 	}
@@ -23,7 +25,7 @@ public class move_cube : MonoBehaviour {
             time_count += Time.deltaTime;
             if (time_count > 2.0f)
             {
-                move = new Vector3(Random.Range(-0.1f, 0.1f) * Time.deltaTime, 0.0f, Random.Range(-0.1f, 0.1f) * Time.deltaTime);
+                move = new Vector3(Random.Range(-0.1f, 0.1f) * Time.deltaTime * correction, 0.0f, Random.Range(-0.1f, 0.1f) * Time.deltaTime * correction);
                 time_count = 0.0f;
             }
 

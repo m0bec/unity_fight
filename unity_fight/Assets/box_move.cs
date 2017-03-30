@@ -26,7 +26,7 @@ public class box_move : MonoBehaviour {
         rigidbody = GetComponent<Rigidbody>();
         force = 5.0f;
         jump_time = 1.85f;
-        vec_scale = 0.01f;
+        vec_scale = 0.5f;
         rotation_speed = 1.0f;
 	}
 	
