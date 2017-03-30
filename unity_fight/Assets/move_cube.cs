@@ -23,7 +23,7 @@ public class move_cube : MonoBehaviour {
             time_count += Time.deltaTime;
             if (time_count > 2.0f)
             {
-                move = new Vector3(Random.Range(-0.1f, 0.1f), 0.0f, Random.Range(-0.1f, 0.1f));
+                move = new Vector3(Random.Range(-0.1f, 0.1f) * Time.deltaTime, 0.0f, Random.Range(-0.1f, 0.1f) * Time.deltaTime);
                 time_count = 0.0f;
             }
 
