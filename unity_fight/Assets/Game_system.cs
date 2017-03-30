@@ -18,6 +18,7 @@ public class Game_system : MonoBehaviour {
     float time;
     float gameover_time;
     bool gameover_next_flag;
+
 	// Use this for initialization
 	void Start () {
         unitychan = GameObject.Find("unitychan");
@@ -44,6 +45,7 @@ public class Game_system : MonoBehaviour {
             if(time > gameover_time)
             {
                 gameover_next_flag = true;
+                
             }
             if (gameover_next_flag)
             {
