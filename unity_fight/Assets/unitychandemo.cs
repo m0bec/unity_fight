@@ -10,6 +10,7 @@ public class unitychandemo : MonoBehaviour {
 
     private float margine;
     private float rotate_speed;
+    private float move_speed;
     private Vector3 memory_place;
     private float field_x;
     private float field_z;
@@ -18,6 +19,7 @@ public class unitychandemo : MonoBehaviour {
         animator = GetComponent<Animator>();
         camera = GameObject.Find("Main Camera");
         rotate_speed = 30.0f;
+        move_speed = 0.05f;
         margine = 5.0f;
         field_x = 50.0f;
         field_z = 50.0f;
@@ -45,11 +47,11 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) < -(rotate_speed))
                     {
-                        transform.Rotate(0, rotate_speed, 0);
+                        transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
                     else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y, transform.eulerAngles.y) > rotate_speed)
                     {
-                        transform.Rotate(0, -(rotate_speed), 0);
+                        transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
                     else
                     {
@@ -61,11 +63,11 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) < -(rotate_speed))
                     {
-                        transform.Rotate(0, rotate_speed, 0);
+                        transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
                     else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 90.0f, transform.eulerAngles.y) > rotate_speed)
                     {
-                        transform.Rotate(0, -(rotate_speed), 0);
+                        transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
                     else
                     {
@@ -77,11 +79,11 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) < -(rotate_speed))
                     {
-                        transform.Rotate(0, rotate_speed, 0);
+                        transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
                     else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 270.0f, transform.eulerAngles.y) > rotate_speed)
                     {
-                        transform.Rotate(0, -(rotate_speed), 0);
+                        transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
                     else
                     {
@@ -93,11 +95,11 @@ public class unitychandemo : MonoBehaviour {
                 {
                     if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) < -(rotate_speed))
                     {
-                        transform.Rotate(0, rotate_speed, 0);
+                        transform.Rotate(0, rotate_speed * Time.deltaTime, 0);
                     }
                     else if (Mathf.DeltaAngle(camera.transform.eulerAngles.y + 180.0f, transform.eulerAngles.y) > rotate_speed)
                     {
-                        transform.Rotate(0, -(rotate_speed), 0);
+                        transform.Rotate(0, -(rotate_speed) * Time.deltaTime, 0);
                     }
                     else
                     {
@@ -106,7 +108,7 @@ public class unitychandemo : MonoBehaviour {
                 }
 
                 memory_place = transform.position;
-                transform.position += transform.forward * 0.05f;
+                transform.position += transform.forward * move_speed * Time.deltaTime;
                 if (transform.position.x > field_x || transform.position.x < 0
                     || transform.position.z > field_z || transform.position.z < 0)
                 {
