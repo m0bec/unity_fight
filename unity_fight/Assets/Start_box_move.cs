@@ -25,17 +25,20 @@ public class Start_box_move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        measure_time += Time.deltaTime;
-        measure_move = Mathf.Abs(this.transform.position.x - start_position.x);
-        if(measure_move < upper_move_distance)
+        if (Time.timeScale > 0)
         {
-            this.transform.position += new Vector3(-move_speed, 0, 0);
-        }
+            measure_time += Time.deltaTime;
+            measure_move = Mathf.Abs(this.transform.position.x - start_position.x);
+            if (measure_move < upper_move_distance)
+            {
+                this.transform.position += new Vector3(-move_speed, 0, 0);
+            }
 
-        if(measure_time > jump_time)
-        {
-            rigidbody.AddForce(0.0f, force, 0.0f, ForceMode.Impulse);
-            measure_time = 0.0f;
+            if (measure_time > jump_time)
+            {
+                rigidbody.AddForce(0.0f, force, 0.0f, ForceMode.Impulse);
+                measure_time = 0.0f;
+            }
         }
 	}
 }
