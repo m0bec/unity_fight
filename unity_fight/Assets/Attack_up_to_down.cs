@@ -12,18 +12,21 @@ public class Attack_up_to_down : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        animator_state = animator.GetCurrentAnimatorStateInfo(0);
+        if (Time.timeScale > 0)
+        {
+            animator_state = animator.GetCurrentAnimatorStateInfo(0);
 
-        if (animator_state.fullPathHash == Animator.StringToHash("Base Layer.Attack_up"))
-        {
-            if (Input.GetKey("x"))
+            if (animator_state.fullPathHash == Animator.StringToHash("Base Layer.Attack_up"))
             {
-                animator.SetBool("is_attacking_up_to_down", true);
+                if (Input.GetKey("x"))
+                {
+                    animator.SetBool("is_attacking_up_to_down", true);
+                }
             }
-        }
-        else if (animator_state.fullPathHash == Animator.StringToHash("Base Layer.Attack_up_to_down"))
-        {
-            animator.SetBool("is_attacking_up_to_down", false);
+            else if (animator_state.fullPathHash == Animator.StringToHash("Base Layer.Attack_up_to_down"))
+            {
+                animator.SetBool("is_attacking_up_to_down", false);
+            }
         }
     }
 }

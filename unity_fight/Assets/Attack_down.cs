@@ -11,13 +11,16 @@ public class Attack_down : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("x"))
+        if (Time.timeScale > 0)
         {
-            animator.SetBool("is_attacking_down", true);
-        }
-        else
-        {
-            animator.SetBool("is_attacking_down", false);
+            if (Input.GetKey("x"))
+            {
+                animator.SetBool("is_attacking_down", true);
+            }
+            else
+            {
+                animator.SetBool("is_attacking_down", false);
+            }
         }
     }
 }
