@@ -38,6 +38,8 @@ sysinfo.txt
 /unity_fight/Assets/Standard Assets
 /unity_fight/dust chute
 /unity_fight/dust chute_Data
+*.ogg
+*.wav
 *.exe
 *.asset
 *.meta
