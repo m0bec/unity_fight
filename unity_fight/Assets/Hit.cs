@@ -11,13 +11,14 @@ public class Hit : MonoBehaviour {
     private float impulse;
     // Use this for initialization
     void Start () {
-        impulse = 1000.0f;
+        impulse = 1200.0f;
         unity_chan = GameObject.Find("unitychan");
+        audio = GetComponent<AudioSource>().clip;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        audio = GetComponent<AudioSource>().clip;
+        
 	}
 
     private void OnTriggerEnter(Collider collider)
@@ -26,6 +27,7 @@ public class Hit : MonoBehaviour {
         active_weapons = unity_chan.GetComponent<Active_weapons>();
         if (active_weapons.attack_flag)
         {
+            
             collider.gameObject.GetComponent<Rigidbody>().AddForce(-Box_move.vec_x * impulse, 1.0f, -Box_move.vec_z * impulse, ForceMode.Impulse);
             GetComponent<AudioSource>().PlayOneShot(audio);
 

@@ -19,7 +19,7 @@ public class unitychandemo : MonoBehaviour {
         animator = GetComponent<Animator>();
         camera = GameObject.Find("Main Camera");
         rotate_speed = 1500.0f;
-        move_speed = 2.5f;
+        move_speed = 0.05f;
         margine = 5.0f;
         field_x = 50.0f;
         field_z = 50.0f;
@@ -108,7 +108,7 @@ public class unitychandemo : MonoBehaviour {
                 }
 
                 memory_place = transform.position;
-                transform.position += transform.forward * move_speed * Time.deltaTime;
+                transform.position += transform.forward * move_speed;
                 if (transform.position.x > field_x || transform.position.x < 0
                     || transform.position.z > field_z || transform.position.z < 0)
                 {
