@@ -11,19 +11,22 @@ public class Create_boxunity : MonoBehaviour {
     public GameObject boxunity;
     private Vector3 vec;
     private float rank;
+    int count;
     // Use this for initialization
     void Start () {
         game_system = GameObject.Find("Gamesystem");
 
         create_time = 10.0f;
         vec = this.transform.position;
+        count = 0;
     }
 	
 	// Update is called once per frame
 	void Update () {
         
         state_info_ = game_system.GetComponent<Game_system>().state;
-        rank = game_system.GetComponent<Game_system>().rank;
+        //rank = game_system.GetComponent<Game_system>().rank;
+        if(count > 10 && rank < 5.0f) { rank += 0.5f; count = 0; }
         if (state_info_ == Game_system.state_info.Playing)
         {
             measure_time += Time.deltaTime;
@@ -33,6 +36,7 @@ public class Create_boxunity : MonoBehaviour {
                 vec = this.transform.position;
                 Instantiate(boxunity, vec, Quaternion.Euler(0, 0, 0));
                 measure_time = 0.0f;
+                count++;
             }
         }
  	}
