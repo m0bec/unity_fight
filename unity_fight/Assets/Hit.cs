@@ -11,7 +11,7 @@ public class Hit : MonoBehaviour {
     private float impulse;
     // Use this for initialization
     void Start () {
-        impulse = 1000.0f;
+        impulse = 1100.0f;
         unity_chan = GameObject.Find("unitychan");
         audio = GetComponent<AudioSource>().clip;
     }
